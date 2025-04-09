@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ОФОРММАСТЕР</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+    .header {
+    width: 100%;
+    height: 74px;
+    display: flex;
+    align-items: center;
+    padding: 0 112px; 
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+    justify-content: space-between; 
+}
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+
+    }
+    .nav {
+
+      display: flex;
+      gap: 30px;
+      
+
+    }
+    .nav a {   
+         margin-top:10px;  
+        text-decoration: none;
+        transition: opacity 0.2s ease-in-out;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+      color: #000000;
+    }
+    .nav a:hover {
+      color: #666666;
+    }
+
+    .nav1
+    {
+        display: flex;  
+        gap:30px;
+        
+    }
+    .phone {
+        position: relative;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lang-dropdown {
+        
+        
+        position: relative;
+
+      top: 100%;
+      left: 0;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      display: none;
+      flex-direction: column;
+      font-size: 16px;
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 5px;
+      z-index: 10;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .lang-dropdown div {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .lang-dropdown div:hover {
+      background-color: #f0f0f0;
+    }
+
+    .lang {
+        position: relative;
+
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Montserrat', sans-serif;
+      user-select: none;
+    }
+
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 10px;
+      user-select: none;
+    }
+
+    .lang:hover .lang-dropdown,
+    .lang:focus-within .lang-dropdown {
+      display: block;
+    }
+
+    .lang-dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+
+    .lang-dropdown a {
+      display: block;
+      padding: 6px 12px;
+      text-decoration: none;
+      color: #000;
+      white-space: nowrap;
+    }
+
+    .lang-dropdown a:hover {
+      background-color: #f0f0f0;
+    }
+    .burger {
+        position: relative;
+top:6px;
+      width: 24px;
+      height: 18px;
+      cursor: pointer;
+      transition: opacity 0.2s ease-in-out;
+    }
+    .burger:hover {
+      opacity: 0.6;
+    }
+    .burger div {
+      width: 100%;
+      height: 3px;
+      background-color: #000;
+      margin: 3px 0;
+    }
+
+    .hero-block {
+        width: 100vw;
+      height: 730px;
+      background-color: #07070B;
+      padding-left: 112px;
+      position: relative;
+      color: white;
+    }
+
+    .hero-tagline {
+        color: #D7DEE6;
+      position: absolute;
+      top: 149px;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .hero-title {
+      position: absolute;
+      top: 185px;
+      width: 701px;
+      height: 177px;
+      font-size: 48px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      line-height: 1.2;
+    }
+
+    .hero-description {
+        color: #D7DEE6;
+
+      position: absolute;
+      top: 386px;
+      width: 588px;
+      font-size: 20px;
+      line-height: 1.4;
+    }
+
+    .hero-buttons {
+      position: absolute;
+      top: 516px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .hero-button1 {
+      padding: 16px 32px;
+      font-size: 18px;
+      font-family: 'Montserrat', sans-serif;
+      background-color: white;
+      color: #07070B;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .hero-button1:hover {
+      background-color: #07070B;
+      color: white;
+      border: 1px solid white;
+    }
+
+    .hero-button2 {
+      padding: 16px 32px;
+      font-size: 18px;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #07070B;
+      color: white;
+      border: 1px solid white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .hero-button2:hover {
+        background-color: white;
+      color: #07070B;
+      border: none;
+      
+    }
+    .hero-features {
+        left: 730px;
+      position: absolute;
+      top: 525px;
+      display: flex;
+      gap: 19px;
+    }
+
+    .feature-item {
+        width:185px;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      color: #D7DEE6;
+    }
+
+    .feature-bullet {
+      width: 4px;
+      height: 35px;
+      background-color: white;
+      margin-right: 19px;
+    }
+.hero-line3
+{
+    display: flex;
+    position: relative;
+    justify-content: space-between; 
+}
+
+.numbers-section {
+      background-color: white;
+      padding-top: 60px;
+      position: relative;
+    }
+    
+    .numbers-title {
+      font-size: 36px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      padding-left: 112px; /* Matching your header padding */
+      margin-bottom: 76px; /* 1000-924=76 to reach 1000px from top */
+    }
+    
+    .numbers-container {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 112px;
+      height: 343px;
+    }
+    
+    .number-block {
+      background-color: #D7DEE6;
+      width: 289px;
+      position: relative;
+    }
+    
+    .block-1, .block-3 {
+      height: 343px;
+    }
+    
+    .block-2 {
+      height: 250px;
+      margin-top: 93px;
+    }
+    
+    .block-4 {
+      height: 250px;
+      margin-top: 0;
+    }
+    
+    .block-title {
+      font-size: 64px;
+      font-weight: bold;
+      font-family: 'Montserrat', sans-serif;
+      position: absolute;
+      top: 24px;
+      left: 32px;
+    }
+    
+    .block-text {
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      position: absolute;
+      left: 32px;
+      bottom: 24px;
+      width: calc(100% - 64px);
+    }
+        
+        .about-section {
+        width: 100vw;
+        display: flex;
+      justify-content: space-between;
+      padding: 80px 112px;
+      background-color: white;
+      align-items: center;
+    }
+    .about
+    {
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap:20px;
+    }
+
+
+    .about-title {
+      font-size: 36px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+    }
+    
+    .about-text {
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      width: 580px;
+    }
+
+    .about-button{
+      padding: 16px 32px;
+      font-size: 18px;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #07070B;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .about-button:hover {
+      background-color: #D7DEE6;
+      color: white;
+      border: 1px solid white;
+    }
+
+    .about-mainblock
+    {
+        background-color: #D7DEE6;
+      width: 598px;
+      height: 700px
+    }
+
+    .services-details-section {
+      background-color: #F6F7FB;
+      padding: 80px 112px;
+      height: 886px;
+    }
+    
+    .services-details-title {
+      font-size: 36px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .services-details-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    
+    .service-detail-block {
+      background-color: #07070B;
+      color: white;
+      height: 300px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.8s ease;
+    }
+    
+    .service-main-title {
+      font-size: 24px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      position: absolute;
+      bottom: 30px;
+      left: 40px;
+      right: 40px;
+      transition: all 0.8s ease;
+    }
+    
+    .service-detail-list {
+      list-style-type: none;
+      position: absolute;
+      top: 100%;
+      left: 40px;
+      right: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+    
+    .service-detail-item {
+      font-size: 12px;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 15px;
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.5;
+      color: #CECECE;
+    }
+    
+    .service-detail-item:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: white;
+    }
+    
+    /* Hover effects */
+    .service-detail-block:hover {
+      background-color: #07070B;
+    }
+    
+    .service-detail-block:hover .service-main-title {
+      font-size: 16px;
+      transform: translateY(-215px);
+    }
+    
+    .service-detail-block:hover .service-detail-list {
+      opacity: 1;
+      transform: translateY(-200px);
+    }
+
+    .logo_bg
+    {
+        background-color: #545B6A;
+        height:750px;
+        width: 100vw;
+      justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+    .logo-title
+    {
+        font-size: 128px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      color:white;
+        }
+
+        .projects-section {
+      padding: 80px 112px;
+      background-color: white;
+    }
+    
+    .projects-title {
+      font-size: 36px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      margin-bottom: 40px;
+    }
+    
+    .filter-buttons {
+        display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 30px;
+      justify-content: center;
+    }
+  
+    .filter-input {
+      display: none;
+    }
+    
+    .filter-label {
+      padding: 12px 24px;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      background-color: white;
+      color: #07070B;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .filter-label:hover {
+      background-color: #97A1B8;
+      color: white;
+    }
+    
+    .filter-input:checked + .filter-label {
+      background-color: #545B6A;
+      color: white;
+    }
+    
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      justify-content: space-between;
+      gap:20px;
+    }
+    
+    .project-block {
+      background-color: #07070B;
+      height: 343px;
+      position: relative;
+      overflow: hidden;
+      display: none; /* Hide all by default */
+    }
+    
+    .project-title {
+      position: absolute;
+      bottom: 56px;
+      left: 24px;
+      right: 24px;
+      font-size: 24px;
+      font-family: 'Montserrat', sans-serif;
+      color: white;
+        font-weight: bold;
+    }
+    
+    .project-description {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: #D7DEE6;
+      line-height: 1.5;
+    }
+    
+    /* Show projects based on selected filter */
+    #architecture:checked ~ .projects-container .architecture,
+    #sketch:checked ~ .projects-container .sketch,
+    #road:checked ~ .projects-container .road,
+    #traffic:checked ~ .projects-container .traffic,
+    #engineering:checked ~ .projects-container .engineering {
+      display: block;
+    }
+    
+    /* Default show architecture projects */
+    #architecture:checked ~ .projects-container .architecture {
+      display: block;
+    }
+
+    .partners-section {
+      background-color: #F6F7FB;
+      padding: 120px 112px;
+      height: 508px;
+      position: relative;
+    }
+    
+    .partners-content {
+      padding: 0 112px; /* Matching your other sections */
+    }
+    
+    .partners-title {
+      font-size: 36px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      position: absolute;
+      top: 80px; /* From top of block */
+      left: 112px;
+      right: 112px;
+    }
+    
+    .partners-subtitle {
+      position: absolute;
+      top: 156px; /* From top of block */
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 20px;
+      font-family: 'Inter', sans-serif;
+      color: #545B6A;
+    }
+    
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 60px;
+      position: absolute;
+      bottom: 100px; /* Adjust based on your layout */
+      left: 112px;
+      right: 112px;
+    }
+    .partner-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    .partner-logo {
+      width: 250px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .partner-logo-mini {
+        align-items: center;
+      width: 93px;
+      height: auto;
+      object-fit: contain;
+    }
+     
+    .footer {
+      background-color: #07070B;
+      height: 458px;
+      padding: 60px ;
+      color: #D7DEE6;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .footer-grid {
+        padding:0 112px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+    
+    .footer-column-title {
+      font-size: 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      margin-bottom: 24px;
+      color: white;
+    }
+    
+    .footer-text {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    
+    .footer-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .footer-list li {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+    
+    .footer-list a {
+      color: #D7DEE6;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-list a:hover {
+      color: white;
+    }
+    
+    .contact-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .contact-list li {
+      font-size: 16px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact-icon {
+      margin-right: 12px;
+      width: 20px;
+      height: 20px;
+    }
+    
+    .footer-divider {
+        width:100vw;
+      height: 2px;
+      background-color: #97A1B8;
+      margin: 80px -60px 32px;
+    }
+    
+    .copyright {
+      font-size: 16px;
+      text-align: center;
+    }
+    
+  </style>
+</head>
+<body>
+  <header class="header">
+      <nav class="nav">
+        <div class="logo">Logo</div>
+  
+      <a href="#about">Про нас</a>
+      <a href="#services">Послуги</a>
+      <a href="#projects">Проєкти</a>
+      <a href="#partners">Партнери</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+    <nav class = "nav1">
+            <div class="phone">
+                <img src="pics/bl_phone.png" class="contact-icon">
+         +380000000000
+    </div>
+    <div class="lang" tabindex="0">
+        <div class="lang-toggle">
+          <span>UA</span> ⏷
+        </div>
+        <div class="lang-dropdown">
+          <a href="#">UA</a>
+          <a href="#">EN</a>
+        </div>
+      </div>
+    <div class="burger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    </nav>
+
+  </header>
+
+  <section class="hero-block">
+    <p class="hero-tagline">Проектно-будівельна фірма «Одеспромстрой»</p>
+    <h1 class="hero-title">Ваш надійний партнер у сфері комплексного проектування</h1>
+    <p class="hero-description">Створюємо якісні рішення для дорожньої інфраструктури, мостів, шляхопроводів, адміністративних і комерційних об'єктів.</p>
+    <div class ="hero-line3">
+    <div class="hero-buttons">
+      <button class="hero-button1">Контакти</button>
+      <button class="hero-button2">Наші проєкти</button>
+    </div>
+    
+    <div class="hero-features">
+      <div class="feature-item feature-1">
+        <div class="feature-bullet"></div>
+        <span>Якість</span>
+      </div>
+      <div class="feature-item feature-2">
+        <div class="feature-bullet"></div>
+        <span>Досвід</span>
+      </div>
+      <div class="feature-item feature-3">
+        <div class="feature-bullet"></div>
+        <span>Постійний супровід</span>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="numbers-section">
+    <h2 class="numbers-title">Ми в цифрах</h2>
+    
+    <div class="numbers-container">
+      <div class="number-block block-1">
+        <div class="block-title">19+</div>
+        <div class="block-text">років на ринку</div>
+      </div>
+      
+      <div class="number-block block-2">
+        <div class="block-title">∞</div>
+        <div class="block-text">вирішених проблем клієнтів</div>
+      </div>
+      
+      <div class="number-block block-3">
+        <div class="block-title">..+</div>
+        <div class="block-text">запущених проєктів(зданих об’єктів)</div>
+      </div>
+      
+      <div class="number-block block-4">
+        <div class="block-title">..+</div>
+        <div class="block-text">співробітників (задоволених клієнтів)</div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="about-section">
+    <div class = "about">
+    <h2 class="about-title">Про нас</h2>
+    <div class="about-text">
+      <p>Проектно-будівельна фірма «Одеспромстрой», засноване в 2006 році, володіє сучасним досвідом якісного проектування об'єктів різної складності та призначення.</p>
+      <p>Пріоритетним напрямком діяльності нашої проектної організації є комплексне проектування об'єктів дорожнього господарства і благоустрою, автомобільних доріг, мостів, шляхопроводів, естакад, адміністративних будівель, торгових центрів, виробничих об'єктів, складських комплексів і логістичних центрів всіх категорій складності.</p>
+    </div>
+    <div><button class="about-button">Контакти</button></div>
+    </div>
+    <div class="about-mainblock"></div>
+  </section>
+
+  <section class="services-details-section">
+    <h2 class="services-details-title">Наші послуги</h2>
+    
+    <div class="services-details-container">
+      <!-- Block 1 -->
+      <div class="service-detail-block">
+        <div class="service-main-title">Передпроєктні роботи і послуги</div>
+        <ul class="service-detail-list">
+          <li class="service-detail-item">Розробка містобудівного розрахунку</li>
+          <li class="service-detail-item">Інжинірингові послуги (збір технічних умов та погодження проектної документації);</li>
+          <li class="service-detail-item">Виконання технічного обстеження та видача висновків технічного стану будівель, споруд та інженерних мереж.</li>
+        </ul>
+      </div>
+      
+      <!-- Block 2 -->
+      <div class="service-detail-block">
+        <div class="service-main-title">Комплексне проектування нового будівництва, реконструкції та капітального ремонту</div>
+        <ul class="service-detail-list">
+          <li class="service-detail-item">Архітектурно-будівельне проектування житлових, адміністративних, торговельних і виробничих об'єктів всіх категорій складності;</li>
+          <li class="service-detail-item">Проектування внутрішніх і зовнішніх інженерних мереж, розробка спеціальних розділів проектів;</li>
+          <li class="service-detail-item">
+            Комплексне проектування об'єктів дорожнього господарства, автодоріг, мостів та шляхопроводів, вулиць, внутрішньоквартальних проїздів, промислових під'їздів і естакад, організації дорожнього руху, світлофорного регулювання, схем дислокації дорожніх знаків і т. д.;</li>
+        </ul>
+      </div>
+      
+      <!-- Block 3 -->
+      <div class="service-detail-block">
+        <div class="service-main-title">Виконання вишукувальних робіт</div>
+        <ul class="service-detail-list">
+          <li class="service-detail-item">Виконання інженерно-геодезичних робіт;</li>
+          <li class="service-detail-item">Виконання інженерно-геологічних робіт.</li>
+        </ul>
+      </div>
+      
+      <!-- Block 4 -->
+      <div class="service-detail-block">
+        <div class="service-main-title">Виконання авторського і технічного нагляду</div>
+        <ul class="service-detail-list">
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="logo_bg">
+    <h1 class="logo-title">Logo</h1>
+  </section>
+
+  <section class="projects-section">
+    <h2 class="projects-title">Наші проекти</h2>
+    
+    <!-- Filter buttons using radio inputs -->
+    <input type="radio" name="projectFilter" id="architecture" class="filter-input" checked>
+    <label for="architecture" class="filter-label" style = "margin-right: 37px;">Архітектурне проектування</label>
+    
+    <input type="radio" name="projectFilter" id="sketch" class="filter-input">
+    <label for="sketch" class="filter-label"style = "margin-right: 94px;">Ескізне проектування</label>
+   
+     <input type="radio" name="projectFilter" id="road" class="filter-input">
+    <label for="road" class="filter-label">Проектування дорожнього господарства</label>
+
+     <br>
+    <br>
+    <br>
+    <input type="radio" name="projectFilter" id="traffic" class="filter-input">
+    <label for="traffic" class="filter-label" style = "margin-right: 28px;">Організація дорожнього руху</label>
+    
+    <input type="radio" name="projectFilter" id="engineering" class="filter-input">
+    <label for="engineering" class="filter-label">Проектування інженерних мереж</label>
+<br>
+    <br>
+    <br>
+    <!-- Projects grid -->
+    <div class="projects-container">
+      <!-- Architecture Projects (6) -->
+      <div class="project-block architecture">
+        <div class="project-title">Архітектурний проект 1</div>
+        <div class="project-description">Опис архітектурного проекту 1</div>
+      </div>
+      <div class="project-block architecture">
+        <div class="project-title">Архітектурний проект 2</div>
+        <div class="project-description">Опис архітектурного проекту 2</div>
+      </div>
+      <div class="project-block architecture">
+        <div class="project-title">Архітектурний проект 3</div>
+        <div class="project-description">Опис архітектурного проекту 3</div>
+      </div>
+      <div class="project-block architecture">
+        <div class="project-title">Архітектурний проект 4</div>
+        <div class="project-description">Опис архітектурного проекту 4</div>
+      </div>
+      <div class="project-block architecture">
+        <div class="project-title">Архітектурний проект 5</div>
+        <div class="project-description">Опис архітектурного проекту 5</div>
+      </div>
+      <div class="project-block architecture">
+        <div class="project-title">Архітектурний проект 6</div>
+        <div class="project-description">Опис архітектурного проекту 6</div>
+      </div>
+      
+      <!-- Sketch Projects (6) -->
+      <div class="project-block sketch">
+        <div class="project-title">Ескізний проект 1</div>
+        <div class="project-description">Опис ескізного проекту 1</div>
+      </div>
+      <div class="project-block sketch">
+        <div class="project-title">Ескізний проект 2</div>
+        <div class="project-description">Опис ескізного проекту 2</div>
+      </div>
+      <div class="project-block sketch">
+        <div class="project-title">Ескізний проект 3</div>
+        <div class="project-description">Опис ескізного проекту 3</div>
+      </div>
+      <div class="project-block sketch">
+        <div class="project-title">Ескізний проект 4</div>
+        <div class="project-description">Опис ескізного проекту 4</div>
+      </div>
+      <div class="project-block sketch">
+        <div class="project-title">Ескізний проект 5</div>
+        <div class="project-description">Опис ескізного проекту 5</div>
+      </div>
+      <div class="project-block sketch">
+        <div class="project-title">Ескізний проект 6</div>
+        <div class="project-description">Опис ескізного проекту 6</div>
+      </div>
+      
+      <!-- Road Projects (6) -->
+      <div class="project-block road">
+        <div class="project-title">Дорожній проект 1</div>
+        <div class="project-description">Опис дорожнього проекту 1</div>
+      </div>
+      <div class="project-block road">
+        <div class="project-title">Дорожній проект 2</div>
+        <div class="project-description">Опис дорожнього проекту 2</div>
+      </div>
+      <div class="project-block road">
+        <div class="project-title">Дорожній проект 3</div>
+        <div class="project-description">Опис дорожнього проекту 3</div>
+      </div>
+      <div class="project-block road">
+        <div class="project-title">Дорожній проект 4</div>
+        <div class="project-description">Опис дорожнього проекту 4</div>
+      </div>
+      <div class="project-block road">
+        <div class="project-title">Дорожній проект 5</div>
+        <div class="project-description">Опис дорожнього проекту 5</div>
+      </div>
+      <div class="project-block road">
+        <div class="project-title">Дорожній проект 6</div>
+        <div class="project-description">Опис дорожнього проекту 6</div>
+      </div>
+      
+      <!-- Traffic Projects (6) -->
+      <div class="project-block traffic">
+        <div class="project-title">Дорожній рух проект 1</div>
+        <div class="project-description">Опис проекту дорожнього руху 1</div>
+      </div>
+      <div class="project-block traffic">
+        <div class="project-title">Дорожній рух проект 2</div>
+        <div class="project-description">Опис проекту дорожнього руху 2</div>
+      </div>
+      <div class="project-block traffic">
+        <div class="project-title">Дорожній рух проект 3</div>
+        <div class="project-description">Опис проекту дорожнього руху 3</div>
+      </div>
+      <div class="project-block traffic">
+        <div class="project-title">Дорожній рух проект 4</div>
+        <div class="project-description">Опис проекту дорожнього руху 4</div>
+      </div>
+      <div class="project-block traffic">
+        <div class="project-title">Дорожній рух проект 5</div>
+        <div class="project-description">Опис проекту дорожнього руху 5</div>
+      </div>
+      <div class="project-block traffic">
+        <div class="project-title">Дорожній рух проект 6</div>
+        <div class="project-description">Опис проекту дорожнього руху 6</div>
+      </div>
+      
+      <!-- Engineering Projects (6) -->
+      <div class="project-block engineering">
+        <div class="project-title">Інженерний проект 1</div>
+        <div class="project-description">Опис інженерного проекту 1</div>
+      </div>
+      <div class="project-block engineering">
+        <div class="project-title">Інженерний проект 2</div>
+        <div class="project-description">Опис інженерного проекту 2</div>
+      </div>
+      <div class="project-block engineering">
+        <div class="project-title">Інженерний проект 3</div>
+        <div class="project-description">Опис інженерного проекту 3</div>
+      </div>
+      <div class="project-block engineering">
+        <div class="project-title">Інженерний проект 4</div>
+        <div class="project-description">Опис інженерного проекту 4</div>
+      </div>
+      <div class="project-block engineering">
+        <div class="project-title">Інженерний проект 5</div>
+        <div class="project-description">Опис інженерного проекту 5</div>
+      </div>
+      <div class="project-block engineering">
+        <div class="project-title">Інженерний проект 6</div>
+        <div class="project-description">Опис інженерного проекту 6</div>
+      </div>
+    </div>
+</div>
+  </section>
+
+  <section class="partners-section">
+    <div class="partners-content">
+      <h2 class="partners-title">Наші партнери</h2>
+      
+      <div class="partners-grid">
+        <div class="partner-item">
+            <img src="pics/1.png" class="partner-logo">
+        </div>
+        <div class="partner-item">
+            <img src="pics/2.png" class="partner-logo">
+          </div>
+          <div class="partner-item">
+            <img src="pics/3.png" class="partner-logo">
+          </div>
+          <div class="partner-item">
+            <img src="pics/4.png" class="partner-logo">
+          </div>
+          <div class="partner-item">
+            <img src="pics/5.png" class="partner-logo-mini">
+          </div>
+          <div class="partner-item">
+            <img src="pics/6.png" class="partner-logo">
+          </div>
+          <div class="partner-item">
+            <img src="pics/7.png" class="partner-logo">
+          </div>
+          <div class="partner-item">
+            <img src="pics/8.png" class="partner-logo">
+          </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <!-- Column 1: Logo/Text -->
+      <div class="footer-column">
+        <h3 class="footer-column-title">Logo</h3>
+        <p class="footer-text" style = "width:400px">The choice of this particular phrase is justified by the fact that it contains all the letters of the English alphabet, as well as a comma and a period.</p>
+      </div>
+      
+      <!-- Column 2: Navigation -->
+      <div class="footer-column">
+        <h3 class="footer-column-title">Навігація</h3>
+        <ul class="footer-list">
+          <li><a href="#">Головна</a></li>
+          <li><a href="#">Послуги</a></li>
+          <li><a href="#">Проєкти</a></li>
+          <li><a href="#">Контакти</a></li>
+        </ul>
+      </div>
+      
+      <!-- Column 3: Services -->
+      <div class="footer-column">
+        <h3 class="footer-column-title">Послуги</h3>
+        <ul class="footer-list">
+          <li><a href="#">Проєктування</a></li>
+          <li><a href="#">Будівельні роботи</a></li>
+          <li><a href="#">Благоустрій</a></li>
+          <li><a href="#">Дизайн і візуалізація</a></li>
+        </ul>
+      </div>
+      
+      <!-- Column 4: Contacts -->
+      <div class="footer-column">
+        <h3 class="footer-column-title">Контакти</h3>
+        <ul class="contact-list">
+          <li>
+            <img src="pics/Vector.png" alt="Адреса" class="contact-icon">
+            <span>м. Одеса, вул. Зоопаркова, 1, оф.31</span>
+          </li>
+          <li>
+            <img src="pics/phone.svg.png" alt="Адреса" class="contact-icon">
+            <span>+380000000000</span>
+          </li>
+          <li>
+            <img src="pics/phone.svg.png" alt="Адреса" class="contact-icon">
+
+            <span>+380000000000</span>
+          </li>
+          <li>
+            <img src="pics/mail.svg.png" alt="Email" class="contact-icon">
+            <span>ukrdp@ukr.net</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Divider and copyright -->
+    <div class="footer-divider"></div>
+    <p class="copyright">© 2025 — ТОВ "ПБФ «Одеспромстрой»"</p>
+  </footer>
+</body>
+</html>
